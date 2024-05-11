@@ -36,3 +36,15 @@ repos:
         require_serial: true
         additional_dependencies: []
         minimum_pre_commit_version: "3.2.0"
+
+  # pytest
+  - repo: local
+    hooks:
+      - id: test
+        name: test
+        entry: rye run pytest -v -s tests
+        stages:
+          - "commit"
+        language: system
+        pass_filenames: false
+        always_run: true
